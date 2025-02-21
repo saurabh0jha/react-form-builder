@@ -55,6 +55,7 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
 
   return (
     <div className="form-schema-generator dashed-border">
+      <h2 className="margin-top-0">Form details</h2>
       <TextInput
         value={name}
         onChange={(fieldName, name) => {
