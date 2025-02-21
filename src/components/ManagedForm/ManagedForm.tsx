@@ -38,8 +38,8 @@ export const ManagedForm: FC<IFormListingProps> = (props) => {
 
   const handleSchemaUpdate = (data: Partial<TManagedForm>) => {
     const newManagedForm = { ...managedForm, ...data };
-    const fields = Object.keys(managedForm.schema.elements).length;
-    const stats = { ...managedForm.stats, fieldCount: fields };
+    const fields = Object.keys(newManagedForm.schema.elements).length;
+    const stats = { ...newManagedForm.stats, fieldCount: fields };
     setManagedForm({ ...newManagedForm, stats });
   };
 
@@ -72,7 +72,9 @@ export const ManagedForm: FC<IFormListingProps> = (props) => {
             <button
               className="primary long"
               onClick={async () => {
-                if (isValid()) {
+                if (Object.keys(managedForm.schema.elements).length === 0) {
+                  warningToast("There are no inputs to add");
+                } else if (isValid()) {
                   const resp = await saveManagedForm(managedForm);
                   if (resp.statusCode === 200) {
                     successToast("Successfully saved the form");

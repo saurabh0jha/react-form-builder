@@ -17,6 +17,8 @@ export const fetchManagedForms = (): Promise<httpResponse<TManagedForm[]>> => {
               if(Array.isArray(managedForms)){
                 resolve({statusCode: 200, statusMesage: "Success", data: managedForms as TManagedForm[]});
               }
+            } else {
+                resolve({statusCode: 200, statusMesage: "Success", data: []});
             }
         } catch(e){
             reject({statusCode: 500, statusMessage: "Failed to fetch data. Try Again."})
@@ -26,7 +28,7 @@ export const fetchManagedForms = (): Promise<httpResponse<TManagedForm[]>> => {
       });
 }
 
-export const fetchManagedForm = (id: string): Promise<httpResponse<TManagedForm>> => {
+export const fetchManagedForm = (id: string): Promise<httpResponse<TManagedForm | null>> => {
     return new Promise((resolve, reject) => {
         const delay = 1500;
         setTimeout(() => {
@@ -38,6 +40,8 @@ export const fetchManagedForm = (id: string): Promise<httpResponse<TManagedForm>
                 const managedForm = managedForms.find((form)=> form.id === id)
                 resolve({statusCode: 200, statusMesage: "Success", data: managedForm as TManagedForm});
               }
+            } else {
+                resolve({statusCode: 200, statusMesage: "Success", data: null});
             }
         } catch(e){
             reject({statusCode: 500, statusMessage: "Failed to fetch data. Try Again."})
@@ -91,6 +95,8 @@ export const deleteManagedForm = (id: string): Promise<httpResponse<TManagedForm
                     }
                     localStorage.setItem("managedForms", JSON.stringify(parsedForms));
                     resolve({statusCode: 200, statusMesage: "Success", data: parsedForms});
+                } else {
+                    resolve({statusCode: 200, statusMesage: "Success", data: []});
                 }
             } catch(e){
                 reject({statusCode: 500, statusMessage: "Failed to save the form. Try Again."})

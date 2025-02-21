@@ -19,7 +19,16 @@ export const FormListing: FC<IFormListingProps> = () => {
     const fetchForms = async () => {
       const data = await fetchManagedForms();
       if (data.statusCode === 200) {
-        setManagedForms(data.data);
+        const transformedForms = data.data.map((row) => {
+          const utcSeconds = parseInt(row.createdAt, 10) / 1000;
+          var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+          d.setUTCSeconds(utcSeconds);
+          return {
+            ...row,
+            createdAt: `${d.toDateString()} ${d.toLocaleTimeString()}`,
+          };
+        });
+        setManagedForms(transformedForms);
       } else {
         setError(data.statusMesage);
       }

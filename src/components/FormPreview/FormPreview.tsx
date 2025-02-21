@@ -55,7 +55,7 @@ export const FormPreview = () => {
     const fetchManagedForms = async () => {
       if (formId) {
         const managedformResp = await fetchManagedForm(formId);
-        if (managedformResp.statusCode === 200) {
+        if (managedformResp.statusCode === 200 && managedformResp.data) {
           setForm(managedformResp.data);
         }
         setIsLoading(false);
