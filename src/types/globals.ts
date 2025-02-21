@@ -90,6 +90,7 @@ export type TInputElementSchema = {
     min?: number;
     max?: number;
     maxLength?: number;
+    isValid: boolean;
 }
 
 export type TFormSchema = {
@@ -98,6 +99,7 @@ export type TFormSchema = {
 };
 
 export type TManagedForm = {
+    id: string;
     name: string;
     createdAt: string;
     description: string;

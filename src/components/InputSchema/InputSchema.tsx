@@ -12,10 +12,12 @@ import {
   getElementSchema,
   getValidationSchema,
 } from "../../utilities/elementSchema";
+import { LucideCross, LucideTrash2 } from "lucide-react";
 
 interface IInputSchemaProps {
   config?: TInputElementSchema;
-  onChange: (newCOnfig: TInputElementSchema) => void;
+  onChange: (newConfig: TInputElementSchema) => void;
+  onRemove: (configId: string) => void;
 }
 
 const getBlankErrorConfig = () => {
@@ -40,8 +42,10 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
     props.config
   );
 
-  let errorConfig: Record<keyof TInputElementSchema, string> =
-    getBlankErrorConfig();
+  let errorConfig: Record<
+    Exclude<keyof TInputElementSchema, "id" | "isValid">,
+    string
+  > = getBlankErrorConfig();
 
   const [errors, setErrors] = useState(errorConfig);
 
@@ -54,6 +58,14 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
     let newConfig;
     if (fieldName === "type") {
       newConfig = getElementSchema(value as EInputTypes, config);
+    } else if (fieldName === "list") {
+      const list = String(value)
+        .split(",")
+        .map((elem) => ({ label: elem, value: elem }));
+      newConfig = {
+        ...config,
+        [fieldName]: list,
+      } as TInputElementSchema;
     } else {
       newConfig = {
         ...config,
@@ -84,17 +96,22 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
       .finally(() => {
         setErrors({ ...newErrors });
         setIsValid(tempValidity);
+        setConfig({ ...newConfig, isValid: tempValidity });
+        props.onChange({ ...newConfig, isValid: tempValidity });
       });
-
-    setConfig(newConfig);
-    if (tempValidity) {
-      props.onChange(newConfig);
-    }
   };
 
   return config ? (
     <div className={`input-schema${isValid ? "" : " invalid"}`}>
       <h3 className="margin-top-0">{config?.name}</h3>
+      <span
+        className="floating"
+        onClick={() => {
+          props.onRemove(config.id);
+        }}
+      >
+        <LucideTrash2 size={30} />
+      </span>
       <TextInput
         value={config.name}
         onChange={handleChange}
@@ -119,7 +136,9 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
       />
       <SelectInput
         value={config.type}
-        onChange={handleChange}
+        onChange={(field, value) => {
+          handleChange(field, value);
+        }}
         label="Type"
         name="type"
         id={`select-${config.id}`}
@@ -194,7 +213,7 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
           label="Min"
           name="min"
           id={`min-${config.id}`}
-          placeholder="Add a postfix for the number eg: Years"
+          placeholder="min"
           required={true}
           hidden={false}
           error={errors.min}
@@ -207,7 +226,7 @@ export const InputSchema: FC<IInputSchemaProps> = (props) => {
           label="Max"
           name="max"
           id={`max-${config.id}`}
-          placeholder="Add a postfix for the number eg: Years"
+          placeholder="max value"
           required={true}
           hidden={false}
           error={errors.max}

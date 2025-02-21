@@ -11,3 +11,8 @@
 .invalid{
     border: 1px dashed red;
 }
+
+.floating{
+    position: absolute;
+    left: calc(50% - 50px);
+}

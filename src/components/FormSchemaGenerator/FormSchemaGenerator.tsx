@@ -3,7 +3,6 @@ import { FC, useState } from "react";
 import "./FormSchemaGenerator.css";
 
 import {
-  ESchemaInputTypes,
   TFormSchema,
   TInputElementSchema,
   TManagedForm,
@@ -32,6 +31,12 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
       ...elementSchemas,
       [blankElementSchema.id]: blankElementSchema,
     });
+  };
+
+  const handleSchemaRemove = (id: string) => {
+    const newElementSchemas = { ...elementSchemas };
+    delete newElementSchemas[id];
+    setElementSchemas(newElementSchemas);
   };
 
   const handleSchemaChange = (
@@ -82,6 +87,7 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
             key={elementId}
             config={elementSchemas[elementId]}
             onChange={(newSchema) => handleSchemaChange(elementId, newSchema)}
+            onRemove={(schemaId) => handleSchemaRemove(schemaId)}
           />
         );
       })}

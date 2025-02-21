@@ -54,3 +54,9 @@ table td {
     font-weight: 400;
     font-size: var(--font-medium);
 }
+
+td.no-data {
+    text-align: center;
+    padding: 12px;
+    font-size: var(--font-big);
+}

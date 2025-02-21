@@ -1,15 +1,45 @@
+.form-generator-parent {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+
 .form-generator-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 1rem;
-    padding: 1rem;
     border: 1px dashed var(--color-brand);
     margin: 1rem;
+    padding:0 1rem 5rem 0
 }
 
 .form-generator{
     display: flex;
+    gap: 12px;
+}
+
+.generator-actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+footer {
+    display: block;
+    background: var(--color-brand);
+    box-shadow: 0 2px 8px var(--box-shadow);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.form-generator-footer{
+    display: flex;
+    justify-content: space-between;
     gap: 12px;
 }

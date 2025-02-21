@@ -1,30 +1,36 @@
-import { ManagedForm } from './components/ManagedForm/ManagedForm'
-import { FormListing } from './components/FormListing/FormListing'
-import Header from './components/Header/Header'
-import './styles/App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { ManagedForm } from "./components/ManagedForm/ManagedForm";
+import { FormListing } from "./components/FormListing/FormListing";
+import Header from "./components/Header/Header";
+import "./styles/App.css";
+
+import { ToastContainer } from "react-toastify";
+import { FormPreview } from "./components/FormPreview/FormPreview";
 
 function App() {
-
   return (
     <>
-      <Header />
-      <FormListing data={[{
-        name: "Demo",
-        description: "First demo",
-        createdAt: "20 Feb 2025 14:00",
-        stats: {
-          fieldCount: 8,
-          usageCount: 100,
-        },
-        schema:{
-          version: "1.0.0",
-          elements: []
-        }
+      <main>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<FormListing />} />
+            <Route path="/forms" element={<FormListing />} />
+            <Route
+              path="/generate"
+              element={<ManagedForm managedForm={undefined} />}
+            />
+            <Route path="/preview/:id" Component={FormPreview} />
+            <Route path="/preview" Component={FormPreview} />
 
-      }]} />
-      <ManagedForm managedForm={undefined} />
+            <Route path="/profile" element={<></>} />
+          </Routes>
+        </Router>
+      </main>
+      <ToastContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

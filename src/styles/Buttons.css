@@ -19,6 +19,13 @@ color: var(--text-primary);
 background-color: var(--button-primary);
 }
 
+
+button.primary.long{
+    width: 245px;
+    padding: 14px;
+    font-size: 1rem;
+}
+
 button.primary:hover {
 background-color: var(--button-primary-hover);
 }

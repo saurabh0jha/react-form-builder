@@ -12,6 +12,7 @@ const defaultSchema = {
     hidden: false,
     required: false,
     maxLength: 100,
+    isValid: true,
 };
 
 export const getElementSchema = (type = EInputTypes.TEXT, initialValues: TInputElementSchema = { ...defaultSchema }): TInputElementSchema => {
@@ -27,6 +28,7 @@ export const getElementSchema = (type = EInputTypes.TEXT, initialValues: TInputE
                 hidden: initialValues.hidden || false,
                 required: initialValues.required || false,
                 maxLength: 100,
+                isValid: true,
             });
         case EInputTypes.NUMBER:
             return Object.assign({}, {
@@ -40,6 +42,7 @@ export const getElementSchema = (type = EInputTypes.TEXT, initialValues: TInputE
                 min: 1,
                 max: 100,
                 postfix: "Years",
+                isValid: true,
             });
         case EInputTypes.SELECT:
             return Object.assign({}, {
@@ -50,6 +53,8 @@ export const getElementSchema = (type = EInputTypes.TEXT, initialValues: TInputE
                 hidden: initialValues.hidden || false,
                 required: initialValues.required || false,
                 list: [],
+                isValid: true,
+
             });
         default:
             return Object.assign({}, { ...defaultSchema });
@@ -81,7 +86,7 @@ export const getValidationSchema = (type = EInputTypes.TEXT) => {
             required: yup.boolean().required(),
             min: yup.number().positive().required(),
             max: yup.number().positive().required(),
-            postFix: yup.number().positive().required(),
+            postfix: yup.string().required(),
         });
         case EInputTypes.SELECT:
             return yup.object().shape({

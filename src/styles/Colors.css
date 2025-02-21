@@ -8,4 +8,12 @@
     --text-primary: #ffffff;
     --text-hover: #9598f4;
     --background-highlight: #f0f0f0;
+
+
+    --toastify-toast-width: 500px;
+    --toastify-color-light: #292ebd;
+    --toastify-color-dark: #292ebd;
+    --toastify-color-info: #3498db;
+    --toastify-color-success: #07bc0c;
+    --toastify-color-warning: #f1c40f;
 }
