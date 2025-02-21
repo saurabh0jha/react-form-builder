@@ -27,9 +27,17 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
 
   const addBlankElement = () => {
     const blankElementSchema = getElementSchema();
-    setElementSchemas({
+    const newElementSchemas = {
       ...elementSchemas,
       [blankElementSchema.id]: blankElementSchema,
+    };
+    setElementSchemas(newElementSchemas);
+
+    props.onSchemaUpdate({
+      schema: {
+        version: "1.0.0",
+        elements: newElementSchemas,
+      },
     });
   };
 
@@ -37,6 +45,12 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
     const newElementSchemas = { ...elementSchemas };
     delete newElementSchemas[id];
     setElementSchemas(newElementSchemas);
+    props.onSchemaUpdate({
+      schema: {
+        version: "1.0.0",
+        elements: newElementSchemas,
+      },
+    });
   };
 
   const handleSchemaChange = (
