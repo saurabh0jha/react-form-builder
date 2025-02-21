@@ -1,0 +1,11 @@
+:root {
+    --color-background: #081229;
+    --color-background-inset: #060c1b;
+    --color-background-secondary: #7579ff;
+    --color-brand: #191d3a;
+    --color-accent: #e90fb2;
+    --box-shadow:  rgba(0, 0, 0, 0.1);
+    --text-primary: #ffffff;
+    --text-hover: #9598f4;
+    --background-highlight: #f0f0f0;
+}

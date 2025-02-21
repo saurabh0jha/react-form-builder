@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Background shape -->
+  <rect x="10" y="10" width="380" height="100" rx="20" fill="none"/>
+  
+  <!-- "In" text -->
+  <!-- Letter I -->
+  <path d="M 50 30 L 50 90" stroke="#7579ff" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Letter n -->
+  <path d="M 70 30 L 70 90" stroke="#7579ff" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 70 35 C 70 35, 90 35, 90 55 L 90 90" stroke="#7579ff" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- "Form" text -->
+  <!-- Letter F -->
+  <path d="M 120 30 L 120 90" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 120 35 L 150 35" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 120 55 L 145 55" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Letter o -->
+  <path d="M 170 45 C 170 35, 190 35, 190 45 C 190 75, 170 75, 170 45" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Letter r -->
+  <path d="M 210 45 L 210 90" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 210 45 C 210 35, 230 35, 230 45" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Letter m -->
+  <path d="M 250 45 L 250 90" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 250 45 C 250 35, 265 35, 265 45 L 265 90" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 265 45 C 265 35, 280 35, 280 45 L 280 90" stroke="#e90fb2" fill="none" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Form icon -->
+  <rect x="310" y="30" width="60" height="60" rx="10" fill="none" stroke="#7579ff" stroke-width="4"/>
+  <line x1="320" y1="50" x2="360" y2="50" stroke="#7579ff" stroke-width="4" stroke-linecap="round"/>
+  <line x1="320" y1="70" x2="360" y2="70" stroke="#7579ff" stroke-width="4" stroke-linecap="round"/>
+</svg>

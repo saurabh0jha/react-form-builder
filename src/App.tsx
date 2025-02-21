@@ -1,3 +1,4 @@
+import { ManagedForm } from './components/ManagedForm/ManagedForm'
 import { FormListing } from './components/FormListing/FormListing'
 import Header from './components/Header/Header'
 import './styles/App.css'
@@ -14,8 +15,14 @@ function App() {
         stats: {
           fieldCount: 8,
           usageCount: 100,
+        },
+        schema:{
+          version: "1.0.0",
+          elements: []
         }
+
       }]} />
+      <ManagedForm managedForm={undefined} />
     </>
   )
 }

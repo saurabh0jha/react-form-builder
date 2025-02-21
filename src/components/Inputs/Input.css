@@ -1,0 +1,22 @@
+.custom-input {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.custom-input {
+    label{
+        min-width: 120px; 
+    }
+    input[type="text"], input[type="number"], select{
+        width: 100%;
+    }
+}
+
+
+.custom-label {
+    display: flex;
+    align-self: center;
+}

@@ -1,0 +1,13 @@
+.input-schema{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--color-brand);
+    padding: 1rem;
+    border: 1px dashed var(--color-background-secondary);
+    border-radius: 0.2rem;
+}
+
+.invalid{
+    border: 1px dashed red;
+}
