@@ -11,7 +11,7 @@ import {
 import { TextInput } from "../Inputs/TextInput";
 import { SelectInput } from "../Inputs/SelectInput";
 import { NumericInput } from "../Inputs/NumericInput";
-import "../../styles/Index.css";
+import "../../styles/index.css";
 import "./FormPreview.css";
 import { Loader } from "../Loader/Loader";
 import {
@@ -55,7 +55,7 @@ export const FormPreview = () => {
     const fetchManagedForms = async () => {
       if (formId) {
         const managedformResp = await fetchManagedForm(formId);
-        if (managedformResp.statusCode === 200) {
+        if (managedformResp.statusCode === 200 && managedformResp.data) {
           setForm(managedformResp.data);
         }
         setIsLoading(false);

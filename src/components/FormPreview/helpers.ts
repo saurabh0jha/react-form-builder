@@ -3,7 +3,7 @@ import {
   EInputTypes,
   TInputElementSchema,
 } from "../../types/globals";
-import "../../styles/Index.css";
+import "../../styles/index.css";
 import "./FormPreview.css";
 import { maxLengthValidation } from "../../utilities/validators";
 

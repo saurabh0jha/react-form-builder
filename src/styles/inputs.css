@@ -1,0 +1,20 @@
+
+
+:root {
+    --color-background: #081229;
+    --color-background-secondary: #7579ff;
+    --color-brand: #191d3a;
+    --color-accent: #e90fb2;
+    --box-shadow:  rgba(0, 0, 0, 0.1);
+    --text-primary: #ffffff;
+    --text-hover: #9598f4;
+    --background-highlight: #f0f0f0;
+
+    --button-primary: #7579ff;
+    --button-primary-hover: #6064ce;
+    --button-primary-active:rgb(56, 58, 121);
+
+    --button-secondary: #ff75e5;
+    --button-secondary-hover: #d461bf;
+    --button-secondary-active:#a4338f;
+}
