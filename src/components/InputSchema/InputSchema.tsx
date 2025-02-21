@@ -12,7 +12,7 @@ import {
   getElementSchema,
   getValidationSchema,
 } from "../../utilities/elementSchema";
-import { LucideCross, LucideTrash2 } from "lucide-react";
+import { LucideTrash2 } from "lucide-react";
 
 interface IInputSchemaProps {
   config?: TInputElementSchema;

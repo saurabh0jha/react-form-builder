@@ -27,7 +27,7 @@ interface IInputProps {
   handleChange: (fieldName: string, value: string | number | boolean) => void;
 }
 
-const Input: FC<IInputProps> = ({ config, id, error, handleChange }) => {
+const Input: FC<IInputProps> = ({ config, error, handleChange }) => {
   switch (config.type) {
     case EInputTypes.NUMBER: {
       // @ts-expect-error
@@ -48,7 +48,7 @@ export const FormPreview = () => {
   const [form, setForm] = useState<TManagedForm>();
   const { id } = useParams();
 
-  const [formId, setFormId] = useState(id);
+  const [formId, _] = useState(id);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -74,8 +74,6 @@ export const FormPreview = () => {
   const validationSchema = generateValidationSchema(elements, elementIds);
 
   const [errors, setErrors] = useState(errorConfig);
-
-  const [isValid, setIsValid] = useState(true);
 
   const [formData, setFormData] = useState(initFormData);
 
@@ -111,7 +109,6 @@ export const FormPreview = () => {
       })
       .finally(() => {
         setErrors({ ...newErrors });
-        setIsValid(tempValidity);
         setFormData({ ...newFormData, isValid: tempValidity });
       });
   };

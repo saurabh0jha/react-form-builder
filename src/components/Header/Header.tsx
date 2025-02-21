@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import inform from "../../assets/inform.svg";
 import informSmall from "../../assets/inform-small.svg";
 import "./Header.css";

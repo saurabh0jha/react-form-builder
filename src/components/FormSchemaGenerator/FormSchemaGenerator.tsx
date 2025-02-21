@@ -58,7 +58,7 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
       <h2 className="margin-top-0">Form details</h2>
       <TextInput
         value={name}
-        onChange={(fieldName, name) => {
+        onChange={(_, name) => {
           setName(name);
           props.onSchemaUpdate({ name });
         }}
@@ -71,7 +71,7 @@ export const FormSchemaGenerator: FC<IFormSchemaGeneratorProps> = (props) => {
       />
       <TextInput
         value={description}
-        onChange={(fieldName, description) => {
+        onChange={(_, description) => {
           setDescription(description);
           props.onSchemaUpdate({ description });
         }}
